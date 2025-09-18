@@ -1,0 +1,258 @@
+#include <iostream>
+using namespace std;
+/*1. Calcular la complejidad de las siguientes instrucciones:*/
+int main()
+{
+    int cantidad, total;                               // 1
+    titulo();                                          // 1
+    cout << "\nIngresar la cantidad de neumaticos:\t"; // 1
+    cin >> cantidad;                                   // 1
+    total = calcular(cantidad);                        // si calcular es constante: 1
+    cout << "\nEl monto total es: " << total;          // 1
+    getch();                                           // 1
+    return 0;                                          // 1
+}
+/**SUMA / SIMPLIFICACION / TERMINO MAS SIGNIFICATIVO */
+/**
+ * O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)= O(8) = O(1)
+ */
+/**BIG O Constante */
+
+/*2. Calcular la complejidad de las siguientes instrucciones:*/
+
+int main()
+{
+    int horas;                                                  // 1
+    float total = 0;                                            // 1
+    cout << "Ingresar el numero de horas del trabajador:\t";    // 1
+    cin >> horas;                                               // 1
+    if (horas <= 40)                                            // 1
+        total = horas * 16;                                     // 1
+    else if (horas > 40)                                        // 1
+        total = horas * 16 + (horas - 40) * 20;                 // 1
+    cout << "\nEl salario semanal de un obrero es:\t" << total; // 1
+    return 0;                                                   // 1
+
+/**SUMA / SIMPLIFICACION / TERMINO MAS SIGNIFICATIVO */
+/**
+ * O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)= O(9) = O(1)
+ */
+/**BIG O Constante */}
+
+/*3. Calcular la complejidad de las siguientes instrucciones :*/
+int main()
+{
+    int num, n1, n2, n3, a, b, c;   // 1
+    cout << "\nIngresar numero:\t"; // 1
+    cin >> num;                     // 1
+    n1 = num % 10;                  // 1
+    a = num / 10;                   // 1
+    n2 = a % 10;                    // 1
+    b = a / 10;                     // 1
+    n3 = b % 10;                    // 1
+    c = b / 10;                     // 1
+    /*Solo es una toma de Desicion
+    Tiemplo Constante*/
+    if (b == 0)                           // 1
+        c = 1;                            // 1
+    if (c == 1)                           // 1
+        cout << "\nNumero Incorrecto";    // 1
+    if (n1 == n3 && c == 0)               // 1
+        cout << "\nEs numero capicua";    // 1
+    else if (n1 != n3 && c == 0)          // 1
+        cout << "\nNo es numero capicua"; // 1
+    return 0;                             // 1
+}
+/**SUMA / SIMPLIFICACION / TERMINO MAS SIGNIFICATIVO */
+/**
+ * O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+....= O(18) = O(1)
+ */
+/**BIG O Constante */
+
+/*4. Calcular la complejidad de las siguientes instrucciones:*/
+int main()
+{
+    int n = 1, suma = 0; // 1
+    /*Aunque un buble puede ser un O(n) en este caso no cumple
+    Porque el ciclo se se repite exactamente 10 veces,
+    sin importar el valor de entrada del usuario
+    (porque n empieza en 1 y acaba en 10).*/
+    while (n <= 10) // 10
+    {
+        suma = suma + n; // 1
+        n += 1;          // 1
+    }
+    cout << "\nLa suma de los 10 primeros numeros positivos es " << suma; // 1
+    return 0;                                                             // 1
+}
+/**SUMA / SIMPLIFICACION / TERMINO MAS SIGNIFICATIVO */
+/**
+ * O(1)+O(12)+O(1)= O(14) = O(1)
+ */
+/**BIG O Constante */
+
+/*5. Calcular la complejidad de las siguientes instrucciones:*/
+int main()
+{
+    int numero, cont = 1, suma = 0; // 1
+    numero = ingresar_numero();     // 1 Asumiendo que es constante
+    cout << "\nLa suma es ";        // 1
+    while (cont <= numero)          // n
+    {
+        /**if (cont % 2 != 0) es O(1) porque solo hace una operación de módulo y
+         * una comparación, ambas constantes.
+         * La repeticion depende del while externo, no del if. */
+        if (cont % 2 != 0) // 1
+        {
+            suma = suma + cont;        // 1
+            if (cont == 1)             // 1
+                cout << cont;          // 1
+            else                       // 1
+                cout << " + " << cont; // 1
+        }
+        cont++; // 1
+    }
+    cout << " = " << suma; // 1
+    getch();               // 1
+    return 0;              // 1
+}
+/**SUMA / SIMPLIFICACION / TERMINO MAS SIGNIFICATIVO */
+/**
+ * O(1)+O(1)+O(1)+O(n)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)
+ * = O(n)+O(13)
+ * = O(n)
+ */
+/**BIG O Lineal */
+
+/*6. Calcular la complejidad de las siguientes instrucciones:*/
+int main()
+{
+    int numero, n = 1, suma = 0;    // 1
+    cout << "\nIngresar numero:\t"; // 1
+    cin >> numero;                  // 1
+    for (n = 1; n <= numero; n++)   // n
+    {
+        if (n % 2 != 0)      // 1
+            suma = suma + n; // 1
+    }
+    cout << "\nLa suma es " << suma; // 1
+    return 0;                        // 1
+}
+/**SUMA / SIMPLIFICACION / TERMINO MAS SIGNIFICATIVO */
+/**
+ * O(1)+O(1)+O(1)+O(n)+O(1)+O(1)+O(1)+O(1)
+ * = O(n)+O(7)
+ * = O(n)
+ */
+/**BIG O Lineal */
+
+/*7. Calcular la complejidad de las siguientes instrucciones:*/
+int main()
+{
+    int n, m, i, suma_n = 0, suma_m;                                    // 1
+    n = ingresar_pares();                                               // 1
+    m = ingresar_impares();                                             // 1
+    system("cls");                                                      // 1
+    titulo();                                                           // 1
+    cout << "\nIngresar la cantidad de numeros impares a sumar: " << m; // 1
+    cout << "\nSumatoria de numeros impares ";                          // 1
+    for (i = 1; i <= 2 * m; i++)                                        // n
+    {
+        if (i % 2 != 0) // 1
+        {
+            suma_m = suma_m + i; // 1
+            if (i == 1)          // 1
+                cout << i;       // 1
+            else
+                cout << " + " << i; // 1
+        }
+    }
+    cout << " = " << suma_m; // 1
+    return 0;                // 1
+    getch();                 // 1
+}
+/**SUMA / SIMPLIFICACION / TERMINO MAS SIGNIFICATIVO */
+/**
+ * O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(n)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(1)
+ * = O(n)+O(16)
+ * = O(n)
+ */
+/**BIG O Lineal */
+
+/*8. Calcular la complejidad de las siguientes instrucciones:*/
+int main()
+{
+    int i, n, EF, EP, TF;                       // 1
+    float promedio;                             // 1
+    cout << "\nIngrese el numero de alumnos: "; // 1
+    cin >> n;                                   // 1
+    for (i = 0; i < n; i++)                     // n
+    {
+        cout << "\n\nIngrese el EF del Alumno " << i + 1 << " : "; // 1
+        cin >> EF;                                                 // 1
+        cout << "\nIngrese el EP del Alumno " << i + 1 << " : ";   // 1
+        cin >> EP;                                                 // 1
+        cout << "\nIngrese el TF del Alumno " << i + 1 << " : ";   // 1
+        cin >> TF;                                                 // 1
+        promedio = (EF * 0.55 + EP * 0.30 + TF * 0.15);            // 1
+        cout << "\n\nSu promedio final es: " << promedio;          // 1
+    }
+    return 0; // 1
+    getch();  // 1
+}
+/**SUMA / SIMPLIFICACION / TERMINO MAS SIGNIFICATIVO */
+/**
+ * O(1)+O(1)+O(1)+O(n)+O(1)+O(1)+O(1)
+ * = O(n)+O(1)
+ * = O(n)
+ */
+/**BIG O Lineal */
+
+/*9. Calcular la complejidad de las siguientes instrucciones:*/
+int main()
+{
+    float n, i, k = 0, j = 0, suma = 0; // 1
+    cout << "\nIngrese N: ";            // 1
+    cin >> n;                           // 1
+    for (i = 1; i <= n; i++)            // n
+    {
+        j = pow(2, k);       // 1
+        suma = suma + 1 / j; // 1
+        k = k + 1;           // 1
+    }
+    cout << "\nLa suma es: " << suma; //
+    return 0;                         // 1
+}
+/**SUMA / SIMPLIFICACION / TERMINO MAS SIGNIFICATIVO */
+/**
+ * O(1)+O(1)+O(1)+O(n)+O(1)+O(1)+O(1)
+ * = O(n)+O(1)
+ * = O(n)
+ */
+/**BIG O Lineal */
+
+/*10. Calcular el siguiente código:*/
+int main()
+{
+    int b, e, i, potencia = 1;//1
+    /* Este Do-While No depende de n, ni de e,
+    ni de algún tamaño de entrada creciente del programa*/
+    do 
+    {
+        cout << "\nIngresar numero b: "; //1
+        cin >> b;//1
+        cout << "\nIngresar numero e: ";//1
+        cin >> e;//1
+    } while (b < 0 || e < 0);//1
+    for (i = 1; i <= e; i++) //n
+        potencia = potencia * b;//1
+    cout << "\nEl resultado es: " << potencia;//1
+    return 0;//1
+}
+/**SUMA / SIMPLIFICACION / TERMINO MAS SIGNIFICATIVO */
+/**
+ * O(1)+O(1)+O(1)+O(1)+O(1)+O(1)+O(n)
+ * = O(n)+O(6)
+ * = O(n)
+ */
+/**BIG O Lineal */
